@@ -17,7 +17,7 @@ Move to your PATH:
 `sudo mv search /usr/local/bin/`
 
 #### Windows (WSL, Git Bash)
-`mkdir -p ~/bin
+```mkdir -p ~/bin
 mv search ~/bin/
 echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc`
+source ~/.bashrc```
