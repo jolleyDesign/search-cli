@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# Function to display help
+show_help() {
+    echo "Usage: search --options \"your search query\""
+    echo ""
+    echo "Example: search -d \"what is the meaning of life, the universe, and everything?\""
+    echo "The above example would search DuckDuckGo for "what is the meaning of life, the universe, and everything?\"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help    Show help message"
+    echo "  -g, --google  Search using Google (default)"
+    echo "  -d, --duck    Search using DuckDuckGo"
+    echo "  -b, --bing    Search using Bing"
+    echo ""
+    echo "You can wrap your query in quotation marks (\"\") if you want to include special characters."
+    echo "Don't include shell characters in your search query (e.g. '?', '*', '[ ]') if you aren't using quotation marks, otherwise the search will be interrupted."
+}
+
+# default search engine
+# options include "google", "duck" (DuckDuckGo), and "bing"
+SEARCH_ENGINE="google"
+
+# Parsing command line options
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        -g|--google)
+            SEARCH_ENGINE="google"
+            shift
+            ;;
+        -d|--duck)
+            SEARCH_ENGINE="duck"
+            shift
+            ;;
+        -b|--bing)
+            SEARCH_ENGINE="bing"
+            shift
+            ;;
+        -*)
+            echo "Unknown option $1"
+            echo "Type --help to learn more"
+            exit 1
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
+
+# Check to make sure the search query was entered
+if [ $# -eq 0 ]; then
+    echo "Please enter a search query"
+    echo "Type --help to learn more"
+    exit 1
+fi
+
+# Combining the remaining args as the main search query
+QUERY="$*"
+# URL encode the query
+ENCODED=$(echo "$QUERY" | sed 's/?//g' | sed 's/ /+/g' | sed 's/&/%26/g')
+
+# Setting the search URL based on the selected search engine
+case $SEARCH_ENGINE in
+    "google")
+        URL="https://www.google.com/search?q=$ENCODED"
+        ;;
+    "duck")
+        URL="https://www.duckduckgo.com/?q=$ENCODED"
+        ;;
+    "bing")
+        URL="https://www.bing.com/search?q=$ENCODED"
+        ;;
+esac
+
+open_browser() {
+    if command -v xdg-open > /dev/null; then
+        # User is on a linux distro
+        xdg-open "$1"
+    elif command -v open > /dev/null; then
+        # User is on macOS
+        open "$1"
+    elif command -v start > /dev/null; then
+        # User is on Windows, using Git Bash or WSL
+        start "$1"
+    else
+        # Cannot identify user's operating system
+        echo "Sorry, I can't open your web browser."
+        echo "You can open the URL manually by clicking here: $1"
+        exit 1
+    fi
+}
+
+# Display the search query before opening the browser
+echo "Searching $SEARCH_ENGINE for: $QUERY..."
+# Open the browser
+open_browser "$URL"
