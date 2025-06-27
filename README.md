@@ -1,5 +1,8 @@
 # search-cli
-Command line tool for searching the web. Opens search results in your system's default web browser.
+Command line tool for searching the web.
+Opens search results in your system's default web browser.
+
+TODO: add arguments for opening in alternate browsers. 
 
 ## Installation
 Download the script: 
