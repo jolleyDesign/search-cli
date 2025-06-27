@@ -28,3 +28,14 @@ source ~/.bashrc`
 ```
 
 ## Usage
+```
+search --options "your search query"
+```
+
+#### Arguments
+| Argument      | Description      |
+| ------------- | ------------- |
+| `-h, --help` | Shows the help message |
+| `-g, --google` | Searches using Google (default) |
+| `-d, --duck` | Searches using DuckDuckGo |
+| `-b, --bing` | searches using Bing |
