@@ -17,7 +17,7 @@ chmod +x search
 
 Move to your PATH:
 
-#### Linux / macOS
+#### Linux / macOS (BASH or ZSH)
 ```
 sudo mv search /usr/local/bin/
 ```
@@ -46,3 +46,6 @@ search --options raw search query
 | `-g, --google` | Searches using Google (default) |
 | `-d, --duck` | Searches using DuckDuckGo |
 | `-b, --bing` | searches using Bing |
+
+# Reccomendations
+I reccomend setting an alias in your shell to shorten the `search` keyword, if you use this tool often.
