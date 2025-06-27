@@ -3,10 +3,13 @@ Command line tool for searching the web. Opens search results in your system's d
 
 ## Installation
 Download the script: 
+
 `curl -o search https://raw.githubusercontent.com/jolleydesign/search-cli/main/search`
 
 Make it executable:
+
 `chmod +x search`
+
 
 Move to your PATH:
 
