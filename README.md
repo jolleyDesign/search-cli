@@ -3,18 +3,21 @@ Command line tool for searching the web. Opens search results in your system's d
 
 ## Installation
 Download the script: 
-
-`curl -o search https://raw.githubusercontent.com/jolleydesign/search-cli/main/search`
+```
+curl -o search https://raw.githubusercontent.com/jolleydesign/search-cli/main/search
+```
 
 Make it executable:
-
-`chmod +x search`
-
+```
+chmod +x search
+```
 
 Move to your PATH:
 
 #### Linux / macOS
-`sudo mv search /usr/local/bin/`
+```
+sudo mv search /usr/local/bin/
+```
 
 #### Windows (WSL, Git Bash)
 ```
