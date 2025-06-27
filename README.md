@@ -31,6 +31,10 @@ source ~/.bashrc`
 ```
 search --options "your search query"
 ```
+or
+```
+search --options raw search query
+```
 
 #### Arguments
 | Argument      | Description      |
