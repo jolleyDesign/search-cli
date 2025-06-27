@@ -3,9 +3,9 @@ Command line tool for searching the web.
 Opens search results in your system's default web browser.
 
 TODO: 
--[ ] add arguments for opening in alternate browsers
--[ ] add dotfile config for setting default search engine
--[ ] add more search engines :)
+- [ ] add arguments for opening in alternate browsers
+- [ ] add dotfile config for setting default search engine
+- [ ] add more search engines :)
 
 ## Installation
 Download the script: 
